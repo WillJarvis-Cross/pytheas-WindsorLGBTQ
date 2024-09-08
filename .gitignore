@@ -57,3 +57,11 @@ build-iPhoneSimulator/
 node_modules
 
 .DS_Store
+
+# Unneeded Terraform state files
+*.tfstate
+*.tfstate.backup
+.terraform/
+.terraform.lock.hcl
+
+dist/

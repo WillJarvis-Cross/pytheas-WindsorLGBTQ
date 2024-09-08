@@ -1,0 +1,31 @@
+- hosts: localhost
+  gather_facts: yes
+
+  tasks:
+    - name: Ensure Node.js is installed via nvm
+      shell: |
+        curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+        . ~/.nvm/nvm.sh
+        nvm install node
+        nvm use node
+
+    - name: Install npm dependencies
+      npm:
+        path: "{{ playbook_dir }}"
+        state: present
+
+
+    - name: Ensure all dependencies are installed
+      npm:
+        path: "{{ playbook_dir }}"
+        state: present
+
+    - name: Run the build process
+      command: npm run build
+      args:
+        chdir: "{{ playbook_dir }}"
+
+    - name: Clean up old build artifacts
+      file:
+        path: "{{ playbook_dir }}/dist"
+        state: absent
