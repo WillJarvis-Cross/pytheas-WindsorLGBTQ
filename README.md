@@ -99,7 +99,9 @@ To test your project locally, install the latest Node.js and NPM from the [offic
 
 ## Deployment
 
-To deploy to S3, run:
-    $ npm run deploy
+To deploy to S3, there are some requirements:
 
-This creates a build using ansible, then pushes to S3
+-Install AWS CLI and configure your profile: `aws configure --profile <PROFILE_NAME>`
+-Install Terraform
+-Make sure the deploy.sh script is executable: `chmod +x deploy.sh`
+Then run `npm run deploy` to deploy your changes to S3. This creates a build using ansible, then pushes to S3
