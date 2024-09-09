@@ -29,6 +29,8 @@ fi
 # Step 3: Run Terraform to apply changes
 echo "Applying Terraform changes..."
 terraform apply -auto-approve
+# If you get an error saying the bucket already exists, you likely have to 
+# import the bucket: terraform import aws_s3_bucket.my_bucket <bucket-name>
 
 # Check if Terraform apply was successful
 if [ $? -ne 0 ]; then

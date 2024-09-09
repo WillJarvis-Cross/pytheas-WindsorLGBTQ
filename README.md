@@ -96,3 +96,10 @@ Do this by creating an .env file in the root folder of your project. For more in
 To test your project locally, install the latest Node.js and NPM from the [official source](https://nodejs.org/en/download/current/) and execute this command:
 
     $ npm run dev
+
+## Deployment
+
+To deploy to S3, run:
+    $ npm run deploy
+
+This creates a build using ansible, then pushes to S3
