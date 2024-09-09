@@ -101,7 +101,9 @@ To test your project locally, install the latest Node.js and NPM from the [offic
 
 To deploy to S3, there are some requirements:
 
--Install AWS CLI and configure your profile: `aws configure --profile <PROFILE_NAME>`
--Install Terraform
--Make sure the deploy.sh script is executable: `chmod +x deploy.sh`
+- Install AWS CLI and configure your profile: `aws configure --profile <PROFILE_NAME>`
+- Install Ansible. For MacOS it is `brew install ansible`
+- Install Terraform
+- Make sure the deploy.sh script is executable: `chmod +x deploy.sh`
+
 Then run `npm run deploy` to deploy your changes to S3. This creates a build using ansible, then pushes to S3
